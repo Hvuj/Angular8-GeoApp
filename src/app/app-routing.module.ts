@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ActivityListComponent } from './activity-list/activity-list.component';
+import { MapComponent } from './map/map.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'runs', component: ActivityListComponent},
+  {path:'runs/:id', component: MapComponent},
+  {path:'', redirectTo: "runs", pathMatch: "full"},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

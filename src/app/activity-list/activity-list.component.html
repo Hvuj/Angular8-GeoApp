@@ -1,0 +1,40 @@
+<div class="container">
+  <div id="tr" class="jumbotron rounded">
+    <div class="row">
+      <div class="col">
+        <h2 class="heading">My runs</h2>
+      </div>
+      <div class="col summary">
+        you've logged
+        <p class="totals">Total Distance: {{totalDistance}}</p>
+        total moiles over
+        <p class="totals">Total Activities: {{totalActivities}}</p>
+        runs since
+        <p class="totals">First Date: {{firstDate | date: 'longDate'}}</p>
+      </div>
+    </div>
+
+  <table class="table table-primary table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Comments</th>
+        <th scope="col">Date</th>
+        <th scope="col">Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activities">
+        <td>
+          <a class="btn btn-primary" [routerLink] ="['/run', activity.id]">
+            {{ activity.name }}
+          </a>
+        </td>
+        <td>{{ activity.comments }}</td>
+        <td>{{ activity.date | date:"yyyy-MM-dd"}}</td>
+        <td>{{ activity.distance }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
